@@ -17,8 +17,10 @@ jobs:
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
     strategy:
       matrix:
-        os: [windows-latest, x86-windows]
-    runs-on: ${{ matrix.os }}
+        config:
+          - runs-on: windows-latest
+            arch: x86-windows
+    runs-on: ${{ matrix.config.runs-on }}
 
     steps:
     - uses: actions/checkout@v3
